@@ -5,62 +5,55 @@
 :model-value="visible"
  -->
 <template>
-  <el-dialog 
+  <el-dialog
     :title="title"
     :model-value="visible"
     :before-close="onClose"
     append-to-body
     :width="width + 'px'"
   >
-    <div
-      class="container"
-      :style="{height:height + 'px'}"
-    >
+    <div class="container" :style="{ height: height + 'px' }">
       <slot name="content" />
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button
-          type="danger"
-          @click="onClose"
-        >取消</el-button>
-        <el-button
-          type="primary"
-          @click="onConfirm"
-        >确定</el-button>
+        <el-button type="danger" @click="onClose">取消</el-button>
+        <el-button type="primary" @click="onConfirm">确定</el-button>
       </span>
     </template>
   </el-dialog>
 </template>
-<script setup lang='ts'>
-import { ref, reactive } from 'vue'
+<script setup lang="ts">
+import { ref, reactive } from "vue";
 const props = defineProps({
-    title: {//弹框标题
-        type: String,
-        default: '标题'
-    },
-    visible: { //控制弹框的展示和影藏
-        type: Boolean,
-        default: false
-    },
-    width: {
-        type: Number,
-        default: 600
-    },
-    height: {
-        type: Number,
-        default: 250
-    }
-})
-const emit = defineEmits(['onClose','onConfirm'])
+  title: {
+    //弹框标题
+    type: String,
+    default: "标题",
+  },
+  visible: {
+    //控制弹框的展示和影藏
+    type: Boolean,
+    default: false,
+  },
+  width: {
+    type: Number,
+    default: 600,
+  },
+  height: {
+    type: Number,
+    default: 250,
+  },
+});
+const emit = defineEmits(["onClose", "onConfirm"]);
 //定义弹框的关闭
-const onClose = () =>{
-    emit('onClose')
-}
+const onClose = () => {
+  emit("onClose");
+};
 //定义弹框的确定
-const onConfirm = () =>{
-    emit('onConfirm')
-}
+const onConfirm = () => {
+  emit("onConfirm");
+};
 </script>
 <style lang="scss" scope>
 .container {
