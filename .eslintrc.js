@@ -1,17 +1,24 @@
 module.exports = {
   root: true,
   parserOptions: {
-    souceType: 'module'
+    souceType: "module",
   },
-  parser: 'vue-eslint-parser',
-  extends: ['plugin:vue/vue3-essential','plugin:vue/vue3-strongly-recommended','plugin:vue/vue3-recommended'],
+  parser: "vue-eslint-parser",
+  extends: [
+    "plugin:vue/vue3-essential",
+    "plugin:vue/vue3-strongly-recommended",
+    "plugin:vue/vue3-recommended",
+  ],
   env: {
     browser: true,
     node: true,
-    es6: true
+    es6: true,
   },
   rules: {
-    'no-console': 'off',
-    'comma-dangle': [2, 'never'] // 禁止使用拖尾逗号
-  }
-}
+    "no-console": "off",
+    "comma-dangle": [2, "never"], // 禁止使用拖尾逗号
+  },
+  global: {
+    qq: true,
+  },
+};
